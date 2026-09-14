@@ -3,207 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHUO-DORI SUPPLY LLC | Commercial Wholesale & Global Import</title>
+  <title>CHUO-DORI SUPPLY | Asian Snacks, Drinks & Goods</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-rose-600 selection:text-white">
 
-  <!-- TOP BAR -->
+  <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-6 text-slate-400 flex justify-between items-center">
-    <div>
-      <span class="font-semibold text-slate-200">CHUO-DORI SUPPLY LLC</span> &bull; PA Registered Entity
-    </div>
-    <div class="flex gap-4">
-      <span>EIN Verified</span>
-      <span>B2B Direct Wholesale</span>
+    <div><span class="font-semibold text-slate-200">CHUO-DORI SUPPLY LLC</span> &bull; Direct B2B & Retail Wholesale Storefront</div>
+    <div class="hidden sm:flex gap-4 font-mono">
+      <span>PA Tax Exempt ID: 67899154</span>
+      <span>Case-Pack Direct Shipping</span>
     </div>
   </div>
 
-  <!-- HEADER / NAV -->
-  <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-8 h-8 bg-rose-600 rounded flex items-center justify-center font-bold text-white text-lg tracking-wider">
-        CD
-      </div>
-      <span class="text-xl font-extrabold tracking-tight text-white">CHUO-DORI <span class="text-rose-500 font-normal">SUPPLY</span></span>
-    </div>
-    
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-      <a href="#catalog" class="hover:text-rose-400 transition">Catalog Categories</a>
-      <a href="#distribution" class="hover:text-rose-400 transition">Distribution</a>
-      <a href="#compliance" class="hover:text-rose-400 transition">B2B Compliance</a>
-      <a href="#contact" class="hover:text-rose-400 transition">Portal Access</a>
-    </nav>
-
-    <div>
-      <a href="#contact" class="bg-rose-600 hover:bg-rose-500 text-white font-medium text-sm px-4 py-2 rounded shadow-lg shadow-rose-600/20 transition">
-        Vendor Registration
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3 shrink-0">
+        <div class="w-9 h-9 bg-rose-600 rounded flex items-center justify-center font-bold text-white text-xl tracking-wider shadow-lg shadow-rose-600/30">
+          CD
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-white">CHUO-DORI <span class="text-rose-500 font-normal">STORE</span></span>
       </a>
+
+      <!-- SEARCH BAR -->
+      <div class="flex-1 max-w-md hidden md:block relative">
+        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search chips, ramen, drinks, figures..." 
+               class="w-full bg-slate-900 border border-slate-800 rounded-full px-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition pl-10">
+        <svg class="w-4 h-4 absolute left-3.5 top-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+
+      <!-- CART TRIGGER BUTTON -->
+      <button onclick="toggleCart()" class="relative bg-rose-600 hover:bg-rose-500 text-white font-medium text-sm px-4 py-2 rounded-lg shadow-lg shadow-rose-600/20 transition flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span>Cart</span>
+        <span id="cartCount" class="bg-slate-950 text-rose-400 font-bold text-xs px-2 py-0.5 rounded-full border border-rose-500/30">0</span>
+      </button>
+
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative overflow-hidden pt-20 pb-16 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-    <div>
-      <div class="inline-flex items-center gap-2 bg-rose-950/60 border border-rose-800/60 text-rose-300 text-xs px-3 py-1 rounded-full mb-6 font-semibold">
-        <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> Authorized Commercial Wholesale Partner
-      </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-        High-Volume Sourcing & <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-amber-400">Physical Goods Logistics</span>
+  <!-- STOREFRONT HERO BANNER -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800/80 px-6 py-12">
+    <div class="max-w-7xl mx-auto text-center">
+      <span class="inline-block bg-rose-950/80 border border-rose-800 text-rose-300 text-xs px-3 py-1 rounded-full mb-4 font-semibold uppercase tracking-wider">
+        Authentic Imports & Specialty Case-Packs
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        Asian Snacks, Limited Drinks & Collectibles
       </h1>
-      <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-        Chuo-Dori Supply LLC operates commercial-scale supply chain channels specializing in high-demand imported consumer packaged goods, exotic snacks, and authorized retail inventory.
+      <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        Sourcing premium Asian confectionery, imported instant noodles, niche beverages, and authorized merchandise. Delivered nationwide directly from our Pennsylvania center.
       </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT STORE SECTION -->
+  <section class="max-w-7xl mx-auto px-6 py-10">
+    
+    <!-- CATEGORY FILTER BUTTONS -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-800">
+      <div class="flex flex-wrap gap-2" id="categoryButtons">
+        <button onclick="setCategory('all')" class="cat-btn active bg-rose-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold transition">All Goods</button>
+        <button onclick="setCategory('snacks')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Snacks & Confectionery</button>
+        <button onclick="setCategory('drinks')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Drinks & Tea</button>
+        <button onclick="setCategory('noodles')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Ramen & Noodles</button>
+        <button onclick="setCategory('figures')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Figures & Collectibles</button>
+      </div>
+      <span class="text-xs text-slate-500 font-mono" id="itemCountDisplay">Showing all items</span>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Items dynamically injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART PANEL -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-full max-w-md bg-slate-900 h-full border-l border-slate-800 p-6 flex flex-col justify-between shadow-2xl">
       
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#catalog" class="bg-rose-600 hover:bg-rose-500 text-white font-semibold text-center px-6 py-3.5 rounded shadow-lg shadow-rose-600/25 transition">
-          Browse Sourcing Lines
-        </a>
-        <a href="#compliance" class="border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold text-center px-6 py-3.5 rounded transition">
-          Verify Trade Credentials
-        </a>
+      <!-- CART HEADER -->
+      <div>
+        <div class="flex justify-between items-center pb-4 border-b border-slate-800 mb-4">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            Shopping Cart
+          </h2>
+          <button onclick="toggleCart()" class="text-slate-400 hover:text-white font-bold text-lg">&times;</button>
+        </div>
+
+        <!-- CART ITEMS CONTAINER -->
+        <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+          <p class="text-slate-500 text-sm text-center py-8">Your cart is currently empty.</p>
+        </div>
       </div>
+
+      <!-- CART FOOTER & CHECKOUT BUTTON -->
+      <div class="border-t border-slate-800 pt-4 space-y-4">
+        <div class="flex justify-between font-mono text-sm text-slate-300">
+          <span>Estimated Total</span>
+          <span id="cartTotal" class="text-rose-400 font-bold text-lg">$0.00</span>
+        </div>
+        <button onclick="alert('Order submitted! Processing payment via CHUO-DORI SUPPLY LLC B2B portal.')" 
+                class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-3 rounded-lg shadow-lg shadow-rose-600/25 transition">
+          Proceed to Order Checkout
+        </button>
+      </div>
+
     </div>
-
-    <!-- HERO METRIC CARD -->
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
-      <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-800">
-        <div>
-          <p class="text-xs text-slate-500 font-mono">SUPPLY CHAIN METRICS</p>
-          <p class="text-sm font-semibold text-slate-200">Active Procurement Pipeline</p>
-        </div>
-        <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs px-2.5 py-0.5 rounded font-mono">
-          OPERATIONAL
-        </span>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mb-6">
-        <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-800/80">
-          <p class="text-xs text-slate-400 mb-1">Primary Fulfillment</p>
-          <p class="text-lg font-bold text-white">Commercial FBA / B2B</p>
-        </div>
-        <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-800/80">
-          <p class="text-xs text-slate-400 mb-1">Core Categories</p>
-          <p class="text-lg font-bold text-white">Grocery & Imports</p>
-        </div>
-      </div>
-
-      <div class="space-y-3 font-mono text-xs text-slate-400">
-        <div class="flex justify-between p-2.5 bg-slate-950/40 rounded border border-slate-800/40">
-          <span>Official Commercial Invoicing</span>
-          <span class="text-rose-400 font-bold">PDF / Audit-Ready</span>
-        </div>
-        <div class="flex justify-between p-2.5 bg-slate-950/40 rounded border border-slate-800/40">
-          <span>PA Sales Tax License</span>
-          <span class="text-slate-200">Verified (#67899154)</span>
-        </div>
-        <div class="flex justify-between p-2.5 bg-slate-950/40 rounded border border-slate-800/40">
-          <span>Minimum Order Protocol</span>
-          <span class="text-slate-200">Commercial Case-Pack</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATEGORIES SECTION -->
-  <section id="catalog" class="py-16 bg-slate-900/50 border-y border-slate-800/80 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Sourcing & Category Lines</h2>
-        <p class="text-slate-400">Specialized product verticals supplied through authorized B2B channels.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- CARD 1 -->
-        <div class="bg-slate-950 border border-slate-800 p-6 rounded-lg hover:border-rose-800/50 transition">
-          <div class="w-10 h-10 bg-amber-950/60 border border-amber-700/50 text-amber-400 rounded flex items-center justify-center font-bold mb-4">
-            01
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Import Asian Confectionery</h3>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            Direct case-pack sourcing for premium Korean and Japanese snack lines, including Orion Turtle Chips, specialized instant noodles, and regional limited releases.
-          </p>
-          <span class="text-xs font-semibold text-rose-400">Strict Expiration & Expiry Tracking</span>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="bg-slate-950 border border-slate-800 p-6 rounded-lg hover:border-rose-800/50 transition">
-          <div class="w-10 h-10 bg-rose-950/60 border border-rose-700/50 text-rose-400 rounded flex items-center justify-center font-bold mb-4">
-            02
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Grocery & Gourmet Foods</h3>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            Full compliance wholesale distribution supporting major e-commerce storefronts and direct-to-consumer channels with verified manufacturer traceability.
-          </p>
-          <span class="text-xs font-semibold text-rose-400">Ungating Compliant Invoices</span>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="bg-slate-950 border border-slate-800 p-6 rounded-lg hover:border-rose-800/50 transition">
-          <div class="w-10 h-10 bg-blue-950/60 border border-blue-700/50 text-blue-400 rounded flex items-center justify-center font-bold mb-4">
-            03
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Specialty & Physical Goods</h3>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            High-margin physical inventory, liquidation lots, and niche collectibles with strong unit economics and clear resale market velocity.
-          </p>
-          <span class="text-xs font-semibold text-rose-400">Multi-Channel Fulfillment</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPLIANCE & B2B VERIFICATION SECTION -->
-  <section id="compliance" class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 lg:p-12">
-      <div class="max-w-3xl mb-8">
-        <h2 class="text-3xl font-bold text-white mb-4">Commercial Entity Verification</h2>
-        <p class="text-slate-400">
-          Chuo-Dori Supply LLC maintains full business registration, active state tax licenses, and complete trade compliance across all purchasing platforms.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-sm">
-        <div class="p-4 bg-slate-950 rounded border border-slate-800">
-          <p class="text-xs text-slate-500 mb-1">REGISTERED ENTITY</p>
-          <p class="font-bold text-white">CHUO-DORI SUPPLY LLC</p>
-        </div>
-        <div class="p-4 bg-slate-950 rounded border border-slate-800">
-          <p class="text-xs text-slate-500 mb-1">JURISDICTION</p>
-          <p class="font-bold text-white">Pennsylvania, USA</p>
-        </div>
-        <div class="p-4 bg-slate-950 rounded border border-slate-800">
-          <p class="text-xs text-slate-500 mb-1">SALES & USE TAX LIC</p>
-          <p class="font-bold text-emerald-400">Active (#67899154)</p>
-        </div>
-        <div class="p-4 bg-slate-950 rounded border border-slate-800">
-          <p class="text-xs text-slate-500 mb-1">TAX FORM STATUS</p>
-          <p class="font-bold text-rose-400">PA REV-1220 Executed</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-800 py-12 px-6 bg-slate-950 text-slate-500 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+  <footer class="border-t border-slate-800 py-10 px-6 bg-slate-950 text-slate-500 text-xs mt-16">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <div>
-        <p class="font-bold text-slate-300 text-sm mb-1">CHUO-DORI SUPPLY LLC</p>
-        <p>&copy; 2026 Chuo-Dori Supply LLC. All rights reserved.</p>
+        <p class="font-bold text-slate-300 text-sm">CHUO-DORI SUPPLY LLC</p>
+        <p class="mt-0.5">&copy; 2026 Chuo-Dori Supply LLC. All rights reserved.</p>
       </div>
-      <div class="flex gap-6 text-slate-400">
-        <span>Wholesale Operations</span>
-        <span>B2B Direct</span>
-        <span>Trade Portal</span>
+      <div class="flex gap-4 font-mono text-slate-400">
+        <span>Resale Account Verified</span>
+        <span>Pennsylvania, USA</span>
       </div>
     </div>
   </footer>
 
+  <!-- CATALOG LOGIC & INTERACTION SCRIPT -->
+  <script>
+    const products = [
+      { id: 1, category: 'snacks', name: 'Orion Sweet Corn Turtle Chips', price: 34.50, unit: 'Master Case (12 Pack)', tag: 'Popular Import', color: 'from-amber-500 to-rose-500' },
+      { id: 2, category: 'snacks', name: 'Meiji Yan Yan Chocolate Dip', price: 28.00, unit: 'Case Pack (10 Boxes)', tag: 'Best Seller', color: 'from-amber-700 to-amber-900' },
+      { id: 3, category: 'noodles', name: 'Nissin Raoh Tonkotsu Ramen', price: 42.00, unit: 'Case (12 Units)', tag: 'Authentic Import', color: 'from-rose-600 to-red-800' },
+      { id: 4, category: 'noodles', name: 'Nissin Cup Noodles Seafood Flavor', price: 36.00, unit: 'Master Box (24 Cups)', tag: 'Import Only', color: 'from-blue-600 to-indigo-800' },
+      { id: 5, category: 'drinks', name: 'Sangaria Ramune Soda (Original)', price: 32.00, unit: 'Case (30 Glass Bottles)', tag: 'Japanese Import', color: 'from-cyan-500 to-blue-600' },
+      { id: 6, category: 'drinks', name: 'Pokka Milk Tea (Authentic Brew)', price: 29.50, unit: 'Carton (24 Cans)', tag: 'High Turnover', color: 'from-amber-600 to-orange-700' },
+      { id: 7, category: 'figures', name: 'Good Smile Nendoroid Anime Figure', price: 58.00, unit: 'Single Unit Box', tag: 'Collectible', color: 'from-purple-600 to-pink-600' },
+      { id: 8, category: 'figures', name: 'Banpresto Prize Figure Assortment', price: 110.00, unit: 'Inner Case (6 Figures)', tag: 'Licensed Import', color: 'from-emerald-600 to-teal-800' }
+    ];
+
+    let cart = [];
+    let currentCategory = 'all';
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+      
+      const filtered = products.filter(p => {
+        const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const matchesSearch = p.name.toLowerCase().includes(query) || p.tag.toLowerCase().includes(query);
+        return matchesCat && matchesSearch;
+      });
+
+      document.getElementById('itemCountDisplay').innerText = `Showing ${filtered.length} products`;
+
+      filtered.forEach(p => {
+        const card = `
+          <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-rose-600/50 transition flex flex-col justify-between group">
+            <div>
+              <div class="h-40 bg-gradient-to-tr ${p.color} p-4 flex flex-col justify-between relative overflow-hidden">
+                <span class="bg-slate-950/80 text-rose-300 text-[10px] font-bold px-2.5 py-1 rounded-md self-start border border-rose-500/20 uppercase tracking-wide">
+                  ${p.tag}
+                </span>
+                <span class="text-white/20 font-black text-6xl absolute -right-2 -bottom-4 tracking-tighter select-none">CD</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-bold text-white text-base group-hover:text-rose-400 transition">${p.name}</h3>
+                <p class="text-xs text-slate-400 mt-1 font-mono">${p.unit}</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex justify-between items-center border-t border-slate-800/60 mt-2 pt-4">
+              <div>
+                <p class="text-[10px] text-slate-500 font-mono">B2B UNIT PRICE</p>
+                <p class="text-lg font-bold text-white font-mono">$${p.price.toFixed(2)}</p>
+              </div>
+              <button onclick="addToCart(${p.id})" class="bg-slate-800 hover:bg-rose-600 text-white p-2.5 rounded-lg transition border border-slate-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.innerHTML += card;
+      });
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.classList.remove('bg-rose-600', 'text-white');
+        btn.classList.add('bg-slate-900', 'text-slate-300');
+      });
+      event.target.classList.remove('bg-slate-900', 'text-slate-300');
+      event.target.classList.add('bg-rose-600', 'text-white');
+      renderProducts();
+    }
+
+    function filterProducts() {
+      renderProducts();
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      const existing = cart.find(c => c.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').innerText = cartCount;
+
+      const cartContainer = document.getElementById('cartItems');
+      if (cart.length === 0) {
+        cartContainer.innerHTML = `<p class="text-slate-500 text-sm text-center py-8">Your cart is currently empty.</p>`;
+        document.getElementById('cartTotal').innerText = '$0.00';
+        return;
+      }
+
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        cartContainer.innerHTML += `
+          <div class="flex justify-between items-center bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <div>
+              <p class="text-xs font-bold text-white">${item.name}</p>
+              <p class="text-[11px] text-slate-400 font-mono">$${item.price.toFixed(2)} x ${item.qty}</p>
+            </div>
+            <p class="text-xs font-bold font-mono text-rose-400">$${itemTotal.toFixed(2)}</p>
+          </div>
+        `;
+      });
+
+      document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
+    }
+
+    function toggleCart() {
+      document.getElementById('cartModal').classList.toggle('hidden');
+    }
+
+    // Initial render
+    renderProducts();
+  </script>
 </body>
 </html>
