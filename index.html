@@ -3,123 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHUO-DORI SUPPLY | Asian Snacks, Drinks & Goods</title>
+  <title>CHUO-DORI SUPPLY | Fun Asian Snacks, Drinks & Figures</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: #FAF8F5;
+    }
+    h1, h2, h3, .pop-font { 
+      font-family: 'Fredoka', sans-serif; 
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-rose-600 selection:text-white">
+<body class="text-slate-800 antialiased selection:bg-pink-400 selection:text-white">
 
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-6 text-slate-400 flex justify-between items-center">
-    <div><span class="font-semibold text-slate-200">CHUO-DORI SUPPLY LLC</span> &bull; Direct B2B & Retail Wholesale Storefront</div>
-    <div class="hidden sm:flex gap-4 font-mono">
-      <span>PA Tax Exempt ID: 67899154</span>
-      <span>Case-Pack Direct Shipping</span>
-    </div>
+  <!-- VIBRANT TOP BANNER -->
+  <div class="bg-gradient-to-r from-pink-500 via-rose-500 to-yellow-400 text-white text-xs font-bold py-2.5 px-4 text-center shadow-sm">
+    <span class="inline-block animate-bounce mr-1">✨</span> 
+    AUTHENTIC ASIAN IMPORTS &bull; DIRECT CASE PACKS & RETRO SNACKS 
+    <span class="inline-block animate-bounce ml-1">🧋</span>
   </div>
 
-  <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-6 py-4">
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b-2 border-pink-100 px-6 py-4 shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
       
       <!-- LOGO -->
-      <a href="#" class="flex items-center gap-3 shrink-0">
-        <div class="w-9 h-9 bg-rose-600 rounded flex items-center justify-center font-bold text-white text-xl tracking-wider shadow-lg shadow-rose-600/30">
-          CD
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 bg-pink-500 rounded-2xl flex items-center justify-center font-black text-white text-xl shadow-lg shadow-pink-300 group-hover:scale-105 transition transform">
+          町
         </div>
-        <span class="text-xl font-extrabold tracking-tight text-white">CHUO-DORI <span class="text-rose-500 font-normal">STORE</span></span>
+        <div>
+          <span class="text-2xl font-black tracking-tight text-slate-900 pop-font block leading-none">
+            CHUO-DORI <span class="text-pink-500">STORE</span>
+          </span>
+          <span class="text-[10px] font-bold text-teal-600 uppercase tracking-widest block mt-0.5">LLC Wholesale & Retail</span>
+        </div>
       </a>
 
       <!-- SEARCH BAR -->
       <div class="flex-1 max-w-md hidden md:block relative">
-        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search chips, ramen, drinks, figures..." 
-               class="w-full bg-slate-900 border border-slate-800 rounded-full px-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-rose-500 transition pl-10">
-        <svg class="w-4 h-4 absolute left-3.5 top-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search Pocky, Ramune soda, figures, ramen..." 
+               class="w-full bg-slate-50 border-2 border-pink-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white transition pl-11 shadow-inner">
+        <svg class="w-5 h-5 absolute left-3.5 top-3 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
       </div>
 
-      <!-- CART TRIGGER BUTTON -->
-      <button onclick="toggleCart()" class="relative bg-rose-600 hover:bg-rose-500 text-white font-medium text-sm px-4 py-2 rounded-lg shadow-lg shadow-rose-600/20 transition flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-        </svg>
-        <span>Cart</span>
-        <span id="cartCount" class="bg-slate-950 text-rose-400 font-bold text-xs px-2 py-0.5 rounded-full border border-rose-500/30">0</span>
+      <!-- CART BUTTON -->
+      <button onclick="toggleCart()" class="relative bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold text-sm px-5 py-2.5 rounded-2xl shadow-lg shadow-yellow-200 hover:scale-105 transition transform flex items-center gap-2 border-2 border-yellow-500">
+        <span class="text-base">🛒</span>
+        <span class="pop-font text-base">Cart</span>
+        <span id="cartCount" class="bg-pink-500 text-white font-bold text-xs px-2.5 py-0.5 rounded-full shadow-sm">0</span>
       </button>
 
     </div>
   </header>
 
-  <!-- STOREFRONT HERO BANNER -->
-  <section class="bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800/80 px-6 py-12">
-    <div class="max-w-7xl mx-auto text-center">
-      <span class="inline-block bg-rose-950/80 border border-rose-800 text-rose-300 text-xs px-3 py-1 rounded-full mb-4 font-semibold uppercase tracking-wider">
-        Authentic Imports & Specialty Case-Packs
-      </span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-        Asian Snacks, Limited Drinks & Collectibles
-      </h1>
-      <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-        Sourcing premium Asian confectionery, imported instant noodles, niche beverages, and authorized merchandise. Delivered nationwide directly from our Pennsylvania center.
-      </p>
+  <!-- HERO BANNER -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-pink-100 via-purple-50 to-[#FAF8F5] py-12 px-6 border-b border-pink-100">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <span class="inline-flex items-center gap-1.5 bg-white border-2 border-pink-300 text-pink-600 font-bold text-xs px-3.5 py-1.5 rounded-full mb-4 shadow-sm pop-font">
+          <span>📦</span> Direct PA Fulfillment Center
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-slate-900 leading-tight mb-4 tracking-tight">
+          Tasty Import Snacks, <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Cool Drinks & Figures!</span>
+        </h1>
+        <p class="text-slate-600 text-base sm:text-lg mb-6 font-medium leading-relaxed">
+          Your one-stop storefront for Japanese, Korean, and Asian treats, limited edition sips, instant ramen packs, and collectible anime goods.
+        </p>
+        <div class="flex flex-wrap gap-3 font-semibold text-xs">
+          <span class="bg-teal-100 text-teal-800 px-3 py-1.5 rounded-xl border border-teal-200">✅ Resale Licensed (#67899154)</span>
+          <span class="bg-amber-100 text-amber-800 px-3 py-1.5 rounded-xl border border-amber-200">⚡ Fast Dispatch</span>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHT BOX -->
+      <div class="bg-white border-4 border-pink-200 rounded-3xl p-6 shadow-xl relative transform rotate-1 hover:rotate-0 transition duration-300">
+        <div class="absolute -top-3 -right-3 bg-yellow-400 text-slate-900 font-black text-xs px-3 py-1 rounded-full border-2 border-slate-900 pop-font shadow">
+          WHOLESALE READY
+        </div>
+        <p class="text-xs font-bold text-pink-500 uppercase tracking-widest mb-1 pop-font">Featured Category</p>
+        <h3 class="text-2xl font-black text-slate-900 mb-2">Exotic Snack Case Packs</h3>
+        <p class="text-xs text-slate-500 leading-relaxed mb-4 font-medium">
+          Stock your shelves or pantry with authentic Orion Turtle Chips, Yan Yan dips, Samyang Buldak challenge noodles, and Ramune sodas.
+        </p>
+        <div class="flex justify-between items-center bg-pink-50 p-3 rounded-2xl border border-pink-100">
+          <span class="text-xs font-bold text-slate-700">Minimum Expiration Guarantee</span>
+          <span class="text-xs font-extrabold text-pink-600 pop-font">180+ Days Fresh</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PRODUCT STORE SECTION -->
+  <!-- STORE SECTION -->
   <section class="max-w-7xl mx-auto px-6 py-10">
     
     <!-- CATEGORY FILTER BUTTONS -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-800">
-      <div class="flex flex-wrap gap-2" id="categoryButtons">
-        <button onclick="setCategory('all')" class="cat-btn active bg-rose-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold transition">All Goods</button>
-        <button onclick="setCategory('snacks')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Snacks & Confectionery</button>
-        <button onclick="setCategory('drinks')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Drinks & Tea</button>
-        <button onclick="setCategory('noodles')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Ramen & Noodles</button>
-        <button onclick="setCategory('figures')" class="cat-btn bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-300 px-4 py-1.5 rounded-full text-xs font-semibold transition">Figures & Collectibles</button>
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <div class="flex flex-wrap gap-2.5" id="categoryButtons">
+        <button onclick="setCategory('all')" class="cat-btn active bg-pink-500 text-white font-bold px-5 py-2 rounded-2xl text-xs shadow-md transition pop-font">All Imports</button>
+        <button onclick="setCategory('snacks')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-5 py-2 rounded-2xl text-xs transition pop-font">🍪 Snacks & Sweets</button>
+        <button onclick="setCategory('drinks')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-5 py-2 rounded-2xl text-xs transition pop-font">🧋 Drinks & Tea</button>
+        <button onclick="setCategory('noodles')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-5 py-2 rounded-2xl text-xs transition pop-font">🍜 Ramen & Noodles</button>
+        <button onclick="setCategory('figures')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-5 py-2 rounded-2xl text-xs transition pop-font">🧸 Figures & Collectibles</button>
       </div>
-      <span class="text-xs text-slate-500 font-mono" id="itemCountDisplay">Showing all items</span>
+      <span class="text-xs font-bold text-slate-400 pop-font" id="itemCountDisplay">Loading items...</span>
     </div>
 
     <!-- PRODUCT GRID -->
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Items dynamically injected via JavaScript -->
+      <!-- Items dynamically injected -->
     </div>
   </section>
 
-  <!-- SLIDE-OUT CART PANEL -->
-  <div id="cartModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex justify-end">
-    <div class="w-full max-w-md bg-slate-900 h-full border-l border-slate-800 p-6 flex flex-col justify-between shadow-2xl">
+  <!-- CART SLIDE-OUT PANEL -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-full max-w-md bg-white h-full p-6 flex flex-col justify-between shadow-2xl border-l-4 border-pink-400">
       
-      <!-- CART HEADER -->
       <div>
-        <div class="flex justify-between items-center pb-4 border-b border-slate-800 mb-4">
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            Shopping Cart
+        <div class="flex justify-between items-center pb-4 border-b-2 border-slate-100 mb-4">
+          <h2 class="text-2xl font-black text-slate-900 pop-font flex items-center gap-2">
+            <span>🛒</span> Your Cart
           </h2>
-          <button onclick="toggleCart()" class="text-slate-400 hover:text-white font-bold text-lg">&times;</button>
+          <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-600 font-bold text-lg flex items-center justify-center transition">&times;</button>
         </div>
 
-        <!-- CART ITEMS CONTAINER -->
-        <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
-          <p class="text-slate-500 text-sm text-center py-8">Your cart is currently empty.</p>
+        <div id="cartItems" class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+          <p class="text-slate-400 text-sm text-center py-8 font-medium">Your shopping cart is empty!</p>
         </div>
       </div>
 
-      <!-- CART FOOTER & CHECKOUT BUTTON -->
-      <div class="border-t border-slate-800 pt-4 space-y-4">
-        <div class="flex justify-between font-mono text-sm text-slate-300">
-          <span>Estimated Total</span>
-          <span id="cartTotal" class="text-rose-400 font-bold text-lg">$0.00</span>
+      <div class="border-t-2 border-slate-100 pt-4 space-y-4">
+        <div class="flex justify-between font-bold text-sm text-slate-700">
+          <span>Subtotal</span>
+          <span id="cartTotal" class="text-pink-600 font-black text-xl pop-font">$0.00</span>
         </div>
-        <button onclick="alert('Order submitted! Processing payment via CHUO-DORI SUPPLY LLC B2B portal.')" 
-                class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-3 rounded-lg shadow-lg shadow-rose-600/25 transition">
-          Proceed to Order Checkout
+        <button onclick="alert('Checkout initiated! Connect your Stripe payment link or Snipcart backend here.')" 
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white font-extrabold py-3.5 rounded-2xl shadow-lg shadow-pink-300 transition pop-font text-base border-b-4 border-pink-700 active:translate-y-0.5">
+          Proceed to Order Checkout 🚀
         </button>
       </div>
 
@@ -127,30 +153,30 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-800 py-10 px-6 bg-slate-950 text-slate-500 text-xs mt-16">
+  <footer class="border-t-2 border-pink-100 py-10 px-6 bg-white text-slate-500 text-xs mt-16">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <div>
-        <p class="font-bold text-slate-300 text-sm">CHUO-DORI SUPPLY LLC</p>
-        <p class="mt-0.5">&copy; 2026 Chuo-Dori Supply LLC. All rights reserved.</p>
+        <p class="font-extrabold text-slate-900 text-sm pop-font">CHUO-DORI SUPPLY LLC</p>
+        <p class="mt-0.5 font-medium">&copy; 2026 Chuo-Dori Supply LLC. All rights reserved.</p>
       </div>
-      <div class="flex gap-4 font-mono text-slate-400">
-        <span>Resale Account Verified</span>
+      <div class="flex gap-4 font-bold text-slate-600">
+        <span>Resale Tax ID: 67899154</span>
         <span>Pennsylvania, USA</span>
       </div>
     </div>
   </footer>
 
-  <!-- CATALOG LOGIC & INTERACTION SCRIPT -->
+  <!-- SCRIPT -->
   <script>
     const products = [
-      { id: 1, category: 'snacks', name: 'Orion Sweet Corn Turtle Chips', price: 34.50, unit: 'Master Case (12 Pack)', tag: 'Popular Import', color: 'from-amber-500 to-rose-500' },
-      { id: 2, category: 'snacks', name: 'Meiji Yan Yan Chocolate Dip', price: 28.00, unit: 'Case Pack (10 Boxes)', tag: 'Best Seller', color: 'from-amber-700 to-amber-900' },
-      { id: 3, category: 'noodles', name: 'Nissin Raoh Tonkotsu Ramen', price: 42.00, unit: 'Case (12 Units)', tag: 'Authentic Import', color: 'from-rose-600 to-red-800' },
-      { id: 4, category: 'noodles', name: 'Nissin Cup Noodles Seafood Flavor', price: 36.00, unit: 'Master Box (24 Cups)', tag: 'Import Only', color: 'from-blue-600 to-indigo-800' },
-      { id: 5, category: 'drinks', name: 'Sangaria Ramune Soda (Original)', price: 32.00, unit: 'Case (30 Glass Bottles)', tag: 'Japanese Import', color: 'from-cyan-500 to-blue-600' },
-      { id: 6, category: 'drinks', name: 'Pokka Milk Tea (Authentic Brew)', price: 29.50, unit: 'Carton (24 Cans)', tag: 'High Turnover', color: 'from-amber-600 to-orange-700' },
-      { id: 7, category: 'figures', name: 'Good Smile Nendoroid Anime Figure', price: 58.00, unit: 'Single Unit Box', tag: 'Collectible', color: 'from-purple-600 to-pink-600' },
-      { id: 8, category: 'figures', name: 'Banpresto Prize Figure Assortment', price: 110.00, unit: 'Inner Case (6 Figures)', tag: 'Licensed Import', color: 'from-emerald-600 to-teal-800' }
+      { id: 1, category: 'snacks', name: 'Orion Sweet Corn Turtle Chips', price: 34.50, unit: 'Master Case (12 Packs)', tag: '🔥 Top Seller', bg: 'bg-amber-100 text-amber-800' },
+      { id: 2, category: 'snacks', name: 'Meiji Yan Yan Chocolate Dip Sticks', price: 28.00, unit: 'Case Pack (10 Boxes)', tag: '✨ Classic Treat', bg: 'bg-pink-100 text-pink-800' },
+      { id: 3, category: 'noodles', name: 'Samyang Buldak Carbonara Ramen', price: 38.00, unit: 'Multipack Case (20 Packs)', tag: '🌶️ Viral Spicy', bg: 'bg-red-100 text-red-800' },
+      { id: 4, category: 'noodles', name: 'Nissin Raoh Tonkotsu Pork Ramen', price: 42.00, unit: 'Import Box (12 Units)', tag: '🍜 Premium Broth', bg: 'bg-yellow-100 text-yellow-800' },
+      { id: 5, category: 'drinks', name: 'Sangaria Ramune Marble Soda (Original)', price: 32.00, unit: 'Glass Bottle Case (30 Pack)', tag: '🍾 Pop Favorite', bg: 'bg-cyan-100 text-cyan-800' },
+      { id: 6, category: 'drinks', name: 'Pokka Milk Tea (Authentic Brew)', price: 29.50, unit: 'Can Carton (24 Pack)', tag: '🧋 Sweet Refresh', bg: 'bg-orange-100 text-orange-800' },
+      { id: 7, category: 'figures', name: 'Good Smile Nendoroid Anime Figure', price: 58.00, unit: 'Single Boxed Unit', tag: '🧸 Official Goods', bg: 'bg-purple-100 text-purple-800' },
+      { id: 8, category: 'figures', name: 'Banpresto Prize Figure Assortment', price: 110.00, unit: 'Inner Case (6 Figures)', tag: '⭐ Resale Grade', bg: 'bg-teal-100 text-teal-800' }
     ];
 
     let cart = [];
@@ -163,34 +189,32 @@
       const filtered = products.filter(p => {
         const matchesCat = currentCategory === 'all' || p.category === currentCategory;
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const matchesSearch = p.name.toLowerCase().includes(query) || p.tag.toLowerCase().includes(query);
-        return matchesCat && matchesSearch;
+        return matchesCat && (p.name.toLowerCase().includes(query) || p.tag.toLowerCase().includes(query));
       });
 
       document.getElementById('itemCountDisplay').innerText = `Showing ${filtered.length} products`;
 
       filtered.forEach(p => {
         const card = `
-          <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-rose-600/50 transition flex flex-col justify-between group">
-            <div>
-              <div class="h-40 bg-gradient-to-tr ${p.color} p-4 flex flex-col justify-between relative overflow-hidden">
-                <span class="bg-slate-950/80 text-rose-300 text-[10px] font-bold px-2.5 py-1 rounded-md self-start border border-rose-500/20 uppercase tracking-wide">
+          <div class="bg-white border-2 border-slate-100 hover:border-pink-300 rounded-3xl overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group">
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-3">
+                <span class="text-[11px] font-extrabold px-3 py-1 rounded-full ${p.bg} pop-font">
                   ${p.tag}
                 </span>
-                <span class="text-white/20 font-black text-6xl absolute -right-2 -bottom-4 tracking-tighter select-none">CD</span>
+                <span class="text-xs font-bold text-slate-300 group-hover:text-pink-400 transition">CD-SUPPLY</span>
               </div>
-              <div class="p-5">
-                <h3 class="font-bold text-white text-base group-hover:text-rose-400 transition">${p.name}</h3>
-                <p class="text-xs text-slate-400 mt-1 font-mono">${p.unit}</p>
-              </div>
+              <h3 class="font-bold text-slate-900 text-lg group-hover:text-pink-600 transition leading-snug mb-1">${p.name}</h3>
+              <p class="text-xs font-semibold text-slate-400">${p.unit}</p>
             </div>
-            <div class="p-5 pt-0 flex justify-between items-center border-t border-slate-800/60 mt-2 pt-4">
+
+            <div class="p-5 pt-0 flex justify-between items-center border-t border-slate-100 mt-2 pt-4">
               <div>
-                <p class="text-[10px] text-slate-500 font-mono">B2B UNIT PRICE</p>
-                <p class="text-lg font-bold text-white font-mono">$${p.price.toFixed(2)}</p>
+                <p class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Case Price</p>
+                <p class="text-xl font-black text-slate-900 pop-font">$${p.price.toFixed(2)}</p>
               </div>
-              <button onclick="addToCart(${p.id})" class="bg-slate-800 hover:bg-rose-600 text-white p-2.5 rounded-lg transition border border-slate-700">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              <button onclick="addToCart(${p.id})" class="bg-pink-500 hover:bg-pink-600 text-white font-bold p-3 rounded-2xl shadow-md transition transform active:scale-95 border-b-2 border-pink-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
               </button>
             </div>
           </div>
@@ -202,11 +226,11 @@
     function setCategory(cat) {
       currentCategory = cat;
       document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.remove('bg-rose-600', 'text-white');
-        btn.classList.add('bg-slate-900', 'text-slate-300');
+        btn.classList.remove('bg-pink-500', 'text-white', 'shadow-md');
+        btn.classList.add('bg-white', 'text-slate-700', 'border-2', 'border-slate-200');
       });
-      event.target.classList.remove('bg-slate-900', 'text-slate-300');
-      event.target.classList.add('bg-rose-600', 'text-white');
+      event.target.classList.remove('bg-white', 'text-slate-700', 'border-2', 'border-slate-200');
+      event.target.classList.add('bg-pink-500', 'text-white', 'shadow-md');
       renderProducts();
     }
 
@@ -231,7 +255,7 @@
 
       const cartContainer = document.getElementById('cartItems');
       if (cart.length === 0) {
-        cartContainer.innerHTML = `<p class="text-slate-500 text-sm text-center py-8">Your cart is currently empty.</p>`;
+        cartContainer.innerHTML = `<p class="text-slate-400 text-sm text-center py-8 font-medium">Your shopping cart is empty!</p>`;
         document.getElementById('cartTotal').innerText = '$0.00';
         return;
       }
@@ -243,12 +267,12 @@
         const itemTotal = item.price * item.qty;
         total += itemTotal;
         cartContainer.innerHTML += `
-          <div class="flex justify-between items-center bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <div class="flex justify-between items-center bg-pink-50 p-3.5 rounded-2xl border border-pink-100">
             <div>
-              <p class="text-xs font-bold text-white">${item.name}</p>
-              <p class="text-[11px] text-slate-400 font-mono">$${item.price.toFixed(2)} x ${item.qty}</p>
+              <p class="text-xs font-bold text-slate-900">${item.name}</p>
+              <p class="text-[11px] font-semibold text-slate-500">$${item.price.toFixed(2)} x ${item.qty}</p>
             </div>
-            <p class="text-xs font-bold font-mono text-rose-400">$${itemTotal.toFixed(2)}</p>
+            <p class="text-sm font-black text-pink-600 pop-font">$${itemTotal.toFixed(2)}</p>
           </div>
         `;
       });
@@ -260,7 +284,6 @@
       document.getElementById('cartModal').classList.toggle('hidden');
     }
 
-    // Initial render
     renderProducts();
   </script>
 </body>
