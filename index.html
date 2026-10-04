@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHUO-DORI | The Asian Pop Culture & Goods Marketplace</title>
+  <title>CHUO-DORI | Asian Goods & Pop Culture Imports</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,642 +11,210 @@
   <style>
     body { 
       font-family: 'Plus Jakarta Sans', sans-serif; 
-      background-color: #FAF8F5;
+      background-color: #FAF8F5; 
     }
     h1, h2, h3, .pop-font { 
       font-family: 'Fredoka', sans-serif; 
     }
   </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-pink-400 selection:text-white overflow-x-hidden">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
-  <!-- TOP PROMO TICKER BAR -->
-  <div class="bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-700 text-white text-xs font-bold py-2 px-4 flex justify-between items-center shadow-inner">
-    <div class="flex items-center gap-2 mx-auto sm:mx-0">
-      <span class="bg-yellow-400 text-slate-900 px-2 py-0.5 rounded font-black text-[10px] uppercase tracking-wider">Coupon</span>
-      <span>Limited Time Offer: Use code <strong class="text-yellow-300 underline underline-offset-2">CHUO15</strong> for 15% OFF your first import order!</span>
-    </div>
-    <div class="hidden sm:flex items-center gap-4 text-[11px] font-semibold text-pink-100">
-      <span>🚚 Free US Shipping over $50</span>
-      <span>✨ 100% Licensed Imports</span>
-    </div>
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="bg-gradient-to-r from-pink-500 via-rose-500 to-amber-400 text-white text-xs font-extrabold py-2 px-4 text-center tracking-wide pop-font shadow-sm">
+    ⚡ FAST US DOMESTIC SHIPPING ON ALL JAPANESE & ASIAN IMPORTS! USE CODE <span class="underline decoration-2">CHUO15</span> FOR 15% OFF
   </div>
 
-  <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-pink-100 px-4 sm:px-6 py-3.5 shadow-sm">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-6">
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b-2 border-pink-100 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
       <!-- LOGO -->
-      <a href="#" class="flex items-center gap-2.5 shrink-0 group">
-        <div class="w-10 h-10 bg-pink-500 rounded-2xl flex items-center justify-center font-black text-white text-xl shadow-lg shadow-pink-300 group-hover:scale-105 transition transform">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 bg-pink-500 rounded-2xl flex items-center justify-center font-black text-white text-xl shadow-md shadow-pink-200 group-hover:scale-105 transition">
           中央
         </div>
         <div>
-          <span class="text-2xl font-black tracking-tight text-slate-900 pop-font block leading-none">
-            CHUO-DORI
-          </span>
-          <span class="text-[10px] font-extrabold text-pink-500 uppercase tracking-widest block mt-0.5">Asian Snacks, Media & Goods</span>
+          <span class="text-2xl font-black text-slate-900 pop-font block leading-none">CHUO-DORI</span>
+          <span class="text-[10px] font-extrabold text-pink-500 uppercase tracking-widest block mt-0.5">Asian Pop & Goods</span>
         </div>
       </a>
 
-      <!-- SEARCH BAR -->
-      <div class="flex-1 max-w-xl relative">
-        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search KitKat, manga, vinyls, ramen, figures..." 
-               class="w-full bg-slate-50 border-2 border-slate-200 rounded-full px-5 py-2 text-sm font-medium text-slate-700 placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:bg-white transition pl-11 shadow-inner">
-        <svg class="w-5 h-5 absolute left-3.5 top-2.5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
+      <!-- NAVIGATION LINKS & CART BUTTON -->
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex items-center gap-6 text-xs font-extrabold pop-font text-slate-600">
+          <a href="#featured" class="hover:text-pink-500 transition">Featured Drops</a>
+          <a href="#categories" class="hover:text-pink-500 transition">Categories</a>
+          <a href="#about" class="hover:text-pink-500 transition">Why Us</a>
+        </nav>
 
-      <!-- CART BUTTON -->
-      <button onclick="toggleCart()" class="relative bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold text-sm px-4 sm:px-5 py-2 rounded-2xl shadow-lg shadow-yellow-200 hover:scale-105 transition transform flex items-center gap-2 border-2 border-yellow-500 shrink-0">
-        <span class="text-base">🛒</span>
-        <span class="pop-font text-base hidden sm:inline">Cart</span>
-        <span id="cartCount" class="bg-pink-500 text-white font-bold text-xs px-2.5 py-0.5 rounded-full shadow-sm">0</span>
-      </button>
+        <!-- CART TOGGLE BUTTON -->
+        <button onclick="toggleCart()" class="relative bg-pink-50 hover:bg-pink-100 border-2 border-pink-200 text-pink-600 px-4 py-2 rounded-2xl font-black text-xs transition pop-font flex items-center gap-2 shadow-sm">
+          <span>🛒 Cart</span>
+          <span id="cartCount" class="bg-pink-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-black">0</span>
+        </button>
+      </div>
 
     </div>
   </header>
 
-  <!-- EDGE-TO-BORDER SCROLLING BANNER CAROUSEL -->
-  <section class="w-full relative bg-slate-900 overflow-hidden shadow-xl">
-    
-    <!-- SLIDES CONTAINER -->
-    <div id="carouselSlides" class="relative w-full min-h-[280px] sm:min-h-[360px]">
-      
-      <!-- SLIDE 1: MEGA SALE -->
-      <div class="banner-slide absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500 via-rose-500 to-pink-600 transition-opacity duration-700 opacity-100 flex items-center justify-center">
-        <div class="max-w-7xl w-full px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-white relative z-10">
-          <div class="max-w-xl text-center sm:text-left">
-            <span class="bg-yellow-300 text-slate-900 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider pop-font inline-block mb-3 shadow-md">
-              🔥 Limited Time Mega Sale
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-2 drop-shadow-md">
-              MAJOR SAVINGS FOR THE POP CULTURE SEASON!
-            </h1>
-            <p class="text-white/90 text-sm sm:text-base font-semibold mb-4">
-              Up to <span class="text-yellow-300 font-black text-xl">50% OFF</span> selected figures, Japanese snack packs, and soundtrack vinyls!
-            </p>
-            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-xl border border-white/30 text-xs font-bold">
-              <span>📅 Event Duration: Oct 1st ~ Oct 15th</span>
-            </div>
-          </div>
-          <div class="shrink-0 text-center">
-            <div class="bg-yellow-400 text-slate-900 p-6 rounded-3xl shadow-2xl border-4 border-white rotate-3 hover:rotate-0 transition transform">
-              <p class="text-xs font-black uppercase tracking-widest text-slate-700">Promo Code</p>
-              <p class="text-3xl font-black pop-font my-1 text-pink-600">MEGASALE2026</p>
-              <p class="text-[11px] font-bold text-slate-800">Save extra $10 on orders over $60</p>
-            </div>
-          </div>
-        </div>
+  <!-- HERO BANNER -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full">
+    <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl border-4 border-pink-500">
+      <div class="max-w-lg z-10 relative">
+        <span class="bg-pink-500 text-white font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4 pop-font">
+          Direct US Dispatch 🚀
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black pop-font leading-tight mb-4">
+          Authentic Asian Imports Without the Overseas Wait.
+        </h1>
+        <p class="text-slate-300 text-sm font-medium mb-6">
+          Rare Japanese snacks, exclusive figures, Studio Ghibli vinyls, and Akihabara collectibles delivered straight from our US warehouse in 2–4 days.
+        </p>
+        <a href="#featured" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-pink-500/40 transition pop-font text-sm border-b-4 border-pink-700 active:translate-y-0.5">
+          Shop Trending Drops 👇
+        </a>
       </div>
-
-      <!-- SLIDE 2: NEW ARRIVALS -->
-      <div class="banner-slide absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 transition-opacity duration-700 opacity-0 flex items-center justify-center">
-        <div class="max-w-7xl w-full px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-white relative z-10">
-          <div class="max-w-xl text-center sm:text-left">
-            <span class="bg-cyan-300 text-slate-900 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider pop-font inline-block mb-3 shadow-md">
-              ✨ Fresh Direct Imports
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-2 drop-shadow-md">
-              NEW FALL MANGA & VINYL ARRIVALS
-            </h1>
-            <p class="text-white/90 text-sm sm:text-base font-semibold mb-4">
-              Restocked with rare Studio Ghibli OSTs, official Nendoroid figures, and viral snack drops from Tokyo & Seoul.
-            </p>
-            <button onclick="setCategory('media')" class="bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold px-6 py-2.5 rounded-2xl shadow-lg transition pop-font text-sm">
-              Explore New Media 💿
-            </button>
-          </div>
-          <div class="hidden sm:block text-9xl font-black text-white/10 pop-font select-none">
-            新着
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 3: JAPANESE SWEETS CRAZE -->
-      <div class="banner-slide absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-amber-500 to-rose-500 transition-opacity duration-700 opacity-0 flex items-center justify-center">
-        <div class="max-w-7xl w-full px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-white relative z-10">
-          <div class="max-w-xl text-center sm:text-left">
-            <span class="bg-white text-pink-600 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider pop-font inline-block mb-3 shadow-md">
-              🍓 Limited Seasonal Edition
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-2 drop-shadow-md">
-              NESTLE JAPAN KIT KAT FESTIVAL!
-            </h1>
-            <p class="text-white/90 text-sm sm:text-base font-semibold mb-4">
-              Try the iconic Japanese Strawberry Mini 10-Packs & regional exclusive flavors imported direct from Japan.
-            </p>
-            <button onclick="setCategory('snacks')" class="bg-white hover:bg-pink-50 text-pink-600 font-extrabold px-6 py-2.5 rounded-2xl shadow-lg transition pop-font text-sm">
-              Shop Sweet Treats 🍓
-            </button>
-          </div>
-          <div class="hidden sm:block text-9xl font-black text-white/10 pop-font select-none">
-            甘味
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CAROUSEL ARROWS -->
-    <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition z-20">
-      ❮
-    </button>
-    <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition z-20">
-      ❯
-    </button>
-
-    <!-- CAROUSEL TAB NAVIGATION -->
-    <div class="bg-slate-900/90 backdrop-blur-md border-t border-white/10 relative z-20">
-      <div class="max-w-7xl mx-auto flex divide-x divide-white/10 text-xs sm:text-sm font-extrabold text-slate-300">
-        <button onclick="goToSlide(0)" class="carousel-tab flex-1 py-3 text-center transition hover:text-white hover:bg-white/5 active-tab bg-pink-600 text-white pop-font">
-          🎉 MEGA SALE 2026
-        </button>
-        <button onclick="goToSlide(1)" class="carousel-tab flex-1 py-3 text-center transition hover:text-white hover:bg-white/5 pop-font">
-          📚 New Arrivals & Restocks
-        </button>
-        <button onclick="goToSlide(2)" class="carousel-tab flex-1 py-3 text-center transition hover:text-white hover:bg-white/5 pop-font">
-          🍓 Japanese KitKat Specials
-        </button>
-      </div>
+      <div class="absolute -right-12 -bottom-12 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
     </div>
   </section>
 
-  <!-- STORE NOTICES SECTION -->
-  <section class="max-w-7xl mx-auto px-6 mt-6 mb-4">
-    <div class="bg-white border-2 border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4">
-      <div class="bg-indigo-600 text-white font-extrabold text-xs px-3.5 py-2 rounded-xl flex items-center gap-2 shrink-0 pop-font">
-        <span>📢</span> STORE NOTICES
-      </div>
-      <div class="flex-1 space-y-1 md:space-y-0 text-xs font-medium text-slate-600 divide-y md:divide-y-0 md:divide-x divide-slate-100 flex flex-col md:flex-row gap-3">
-        <div class="flex items-center gap-2 pt-1 md:pt-0">
-          <span class="text-slate-400 font-mono">2026/10/01</span>
-          <span class="font-bold text-slate-800">[Notice]</span>
-          <span>Fast 2-3 Day US Express Dispatch available for all orders!</span>
-        </div>
-        <div class="flex items-center gap-2 pt-1 md:pt-0 md:pl-3">
-          <span class="text-slate-400 font-mono">2026/09/25</span>
-          <span class="font-bold text-slate-800">[Restock]</span>
-          <span>Authentic Japan import KitKat Strawberry Mini 10-packs now back in stock.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT'S NEW & COMING SOON HIGHLIGHT SECTION -->
-  <section class="max-w-7xl mx-auto px-6 py-6">
-    <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden border-2 border-purple-500/30">
-      
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 relative z-10 border-b border-white/10 pb-4">
-        <div>
-          <span class="bg-purple-500 text-white font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider pop-font inline-block mb-2 shadow-sm">
-            🚀 Up Next
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-black pop-font tracking-tight">
-            WHAT'S NEW & COMING SOON
-          </h2>
-          <p class="text-slate-300 text-xs sm:text-sm font-medium mt-1">
-            Get a sneak peek at upcoming direct shipment drops from Japan & South Korea. Sign up to get notified when they arrive!
-          </p>
-        </div>
-      </div>
-
-      <!-- UPCOMING ITEMS GRID -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10" id="upcomingGrid">
-        <!-- Dynamically rendered coming soon items -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STOREFRONT CATALOG SECTION -->
-  <section class="max-w-7xl mx-auto px-6 py-4">
-    
-    <!-- CATEGORY FILTER BUTTONS -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
-      <div class="flex flex-wrap gap-2" id="categoryButtons">
-        <button onclick="setCategory('all')" class="cat-btn active bg-pink-500 text-white font-bold px-4 py-2 rounded-2xl text-xs shadow-md transition pop-font">All Goods</button>
-        <button onclick="setCategory('snacks')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-4 py-2 rounded-2xl text-xs transition pop-font">🍓 Japanese Sweets & Snacks</button>
-        <button onclick="setCategory('figures')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-4 py-2 rounded-2xl text-xs transition pop-font">🧸 Figures & Toys</button>
-        <button onclick="setCategory('manga')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-4 py-2 rounded-2xl text-xs transition pop-font">📚 Manga & Books</button>
-        <button onclick="setCategory('media')" class="cat-btn bg-white border-2 border-slate-200 hover:border-pink-300 text-slate-700 font-bold px-4 py-2 rounded-2xl text-xs transition pop-font">💿 Media & Vinyls</button>
-      </div>
-      <span class="text-xs font-bold text-slate-400 pop-font" id="itemCountDisplay">Loading items...</span>
-    </div>
-
-    <!-- PRODUCT GRID -->
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Products dynamically injected via JavaScript -->
-    </div>
-  </section>
-
-  <!-- PRODUCT QUICK-VIEW MODAL -->
-  <div id="productModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl border-4 border-pink-200">
-      
-      <button onclick="closeProductModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-600 font-bold text-xl flex items-center justify-center transition">
-        &times;
-      </button>
-
-      <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <!-- Dynamically injected upon clicking a product -->
-      </div>
-
-    </div>
-  </div>
-
-  <!-- NOTIFY ME / PRE-ORDER MODAL -->
-  <div id="notifyModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl border-4 border-purple-300">
-      <button onclick="closeNotifyModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-600 font-bold text-lg flex items-center justify-center transition">&times;</button>
-      
-      <div class="text-center">
-        <span class="text-4xl mb-2 inline-block">🔔</span>
-        <h3 id="notifyTitle" class="text-xl font-black text-slate-900 pop-font mb-1">Get Drop Notifications</h3>
-        <p class="text-xs text-slate-500 font-medium mb-4">Be the first to know when this item arrives at our US warehouse!</p>
-        
-        <form onsubmit="handleNotifySubmit(event)" class="space-y-3">
-          <input type="email" required placeholder="Enter your email address..." class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-purple-500">
-          <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3 rounded-xl shadow-md transition pop-font text-xs">
-            Notify Me On Release 🚀
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE-OUT CART PANEL -->
-  <div id="cartModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex justify-end">
-    <div class="w-full max-w-md bg-white h-full p-6 flex flex-col justify-between shadow-2xl border-l-4 border-pink-400">
-      
+  <!-- FEATURED PRODUCTS GRID -->
+  <section id="featured" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full">
+    <div class="flex justify-between items-end mb-6">
       <div>
-        <div class="flex justify-between items-center pb-4 border-b-2 border-slate-100 mb-4">
-          <h2 class="text-2xl font-black text-slate-900 pop-font flex items-center gap-2">
-            <span>🛍️</span> Shopping Bag
-          </h2>
-          <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-600 font-bold text-lg flex items-center justify-center transition">&times;</button>
-        </div>
+        <h2 class="text-2xl font-black text-slate-900 pop-font">Featured Import Drops</h2>
+        <p class="text-xs text-slate-500 font-semibold">Hand-picked exclusive items directly stocked in North America.</p>
+      </div>
+    </div>
 
-        <div id="cartItems" class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
-          <p class="text-slate-400 text-sm text-center py-8 font-medium">Your shopping cart is empty!</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- ITEM 1 -->
+      <div class="bg-white rounded-3xl p-5 border-2 border-slate-200 hover:border-pink-300 transition shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-slate-100 rounded-2xl mb-4 flex items-center justify-center text-4xl">
+            🍫
+          </div>
+          <span class="text-[10px] font-black text-pink-500 bg-pink-50 px-2.5 py-1 rounded-full uppercase pop-font">Rare Snacks</span>
+          <h3 class="text-base font-black text-slate-900 pop-font mt-2">Japanese KitKat Multi-Pack</h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">Exclusive Tokyo regional flavors including Matcha, Strawberry Cheesecake, and Hojicha.</p>
+        </div>
+        <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
+          <span class="text-lg font-black text-slate-900 pop-font">$4.99</span>
+          <button onclick="addToCart('p1', 'Japanese KitKat Multi-Pack', 4.99)" class="bg-pink-500 hover:bg-pink-600 text-white font-extrabold px-4 py-2 rounded-xl text-xs transition pop-font shadow-md border-b-2 border-pink-700 active:translate-y-0.5">
+            + Add to Cart
+          </button>
         </div>
       </div>
 
-      <div class="border-t-2 border-slate-100 pt-4 space-y-4">
-        <div class="flex justify-between font-bold text-sm text-slate-700">
-          <span>Total</span>
-          <span id="cartTotal" class="text-pink-600 font-black text-xl pop-font">$0.00</span>
+      <!-- ITEM 2 -->
+      <div class="bg-white rounded-3xl p-5 border-2 border-slate-200 hover:border-pink-300 transition shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-slate-100 rounded-2xl mb-4 flex items-center justify-center text-4xl">
+            🎵
+          </div>
+          <span class="text-[10px] font-black text-purple-500 bg-purple-50 px-2.5 py-1 rounded-full uppercase pop-font">Music & Media</span>
+          <h3 class="text-base font-black text-slate-900 pop-font mt-2">Studio Ghibli Vinyl Soundtrack</h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">Official remastered analog vinyl record pressings of classic Ghibli orchestra tracks.</p>
         </div>
-        <button onclick="alert('Checkout initiated via Stripe / Payment Link!')" 
-                class="w-full bg-pink-500 hover:bg-pink-600 text-white font-extrabold py-3.5 rounded-2xl shadow-lg shadow-pink-300 transition pop-font text-base border-b-4 border-pink-700 active:translate-y-0.5">
-          Checkout Now 💳
-        </button>
+        <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
+          <span class="text-lg font-black text-slate-900 pop-font">$18.50</span>
+          <button onclick="addToCart('p2', 'Studio Ghibli Vinyl Soundtrack', 18.50)" class="bg-pink-500 hover:bg-pink-600 text-white font-extrabold px-4 py-2 rounded-xl text-xs transition pop-font shadow-md border-b-2 border-pink-700 active:translate-y-0.5">
+            + Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="bg-white rounded-3xl p-5 border-2 border-slate-200 hover:border-pink-300 transition shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-slate-100 rounded-2xl mb-4 flex items-center justify-center text-4xl">
+            🧸
+          </div>
+          <span class="text-[10px] font-black text-amber-500 bg-amber-50 px-2.5 py-1 rounded-full uppercase pop-font">Figures & Toys</span>
+          <h3 class="text-base font-black text-slate-900 pop-font mt-2">Akihabara Display Figure</h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">Limited edition Japanese anime display scale figure imported straight from Akihabara.</p>
+        </div>
+        <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
+          <span class="text-lg font-black text-slate-900 pop-font">$35.00</span>
+          <button onclick="addToCart('p3', 'Akihabara Display Figure', 35.00)" class="bg-pink-500 hover:bg-pink-600 text-white font-extrabold px-4 py-2 rounded-xl text-xs transition pop-font shadow-md border-b-2 border-pink-700 active:translate-y-0.5">
+            + Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART MODAL CONTAINER -->
+  <div id="cartModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden transition-opacity">
+    <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 flex flex-col justify-between shadow-2xl border-l-4 border-pink-500">
+      
+      <!-- CART MODAL HEADER -->
+      <div>
+        <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
+          <h3 class="text-xl font-black text-slate-900 pop-font flex items-center gap-2">
+            <span>🛍️</span> Your Shopping Cart
+          </h3>
+          <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center font-bold text-slate-500 text-xs">
+            ✕
+          </button>
+        </div>
+
+        <!-- CART ITEMS DYNAMIC LIST -->
+        <div id="cartItems" class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- CART FOOTER & CHECKOUT LINK -->
+      <div class="border-t border-slate-100 pt-4 mt-4">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-sm font-bold text-slate-600">Subtotal</span>
+          <span id="cartTotal" class="text-2xl font-black text-pink-600 pop-font">$0.00</span>
+        </div>
+
+        <!-- DIRECT LINK TO CHECKOUT PAGE -->
+        <a href="checkout.html" class="block text-center w-full bg-pink-500 hover:bg-pink-600 text-white font-extrabold py-3.5 rounded-2xl shadow-lg shadow-pink-300 transition pop-font text-base border-b-4 border-pink-700 active:translate-y-0.5">
+          Proceed to Checkout 💳
+        </a>
       </div>
 
     </div>
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t-2 border-pink-100 py-12 px-6 bg-white text-slate-500 text-xs mt-16">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div>
-        <p class="font-extrabold text-slate-900 text-base pop-font mb-2">CHUO-DORI</p>
-        <p class="text-slate-500 font-medium leading-relaxed">Your premier destination for authentic Asian snacks, anime figures, manga, music, and pop-culture imports.</p>
-      </div>
-      <div>
-        <p class="font-bold text-slate-900 mb-2 pop-font">Customer Care</p>
-        <ul class="space-y-1 font-medium text-slate-600">
-          <li><a href="#" class="hover:text-pink-500">Track Order</a></li>
-          <li><a href="#" class="hover:text-pink-500">Shipping Policy</a></li>
-          <li><a href="#" class="hover:text-pink-500">Returns & Exchanges</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="font-bold text-slate-900 mb-2 pop-font">Popular Imports</p>
-        <ul class="space-y-1 font-medium text-slate-600">
-          <li><a href="#" class="hover:text-pink-500">Japanese KitKat Flavors</a></li>
-          <li><a href="#" class="hover:text-pink-500">Official Anime Figures</a></li>
-          <li><a href="#" class="hover:text-pink-500">Manga & Light Novels</a></li>
-          <li><a href="#" class="hover:text-pink-500">Vinyl OSTs & Blu-rays</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="font-bold text-slate-900 mb-2 pop-font">Guaranteed Authentic</p>
-        <p class="text-slate-500 font-medium leading-relaxed">All media, collectibles, and snacks are sourced directly from authorized regional distributors in Asia.</p>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="font-medium">&copy; 2026 CHUO-DORI. All rights reserved.</p>
-      <div class="flex gap-4 font-bold text-slate-400">
-        <span>🔒 Secure 256-Bit SSL Checkout</span>
-      </div>
-    </div>
+  <footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-400 font-medium bg-white mt-12">
+    <p>&copy; 2026 CHUO-DORI Asian Pop Culture & Goods. All rights reserved.</p>
   </footer>
 
-  <!-- DYNAMIC CATALOG & MODAL SCRIPT -->
+  <!-- MAIN CART & LOCALSTORAGE SCRIPT -->
   <script>
-    const upcomingProducts = [
-      {
-        id: 'c1',
-        name: 'Nestle Japan - KitKat Tokyo Banana Flavor',
-        estDate: 'Late October 2026',
-        category: 'Snacks',
-        badge: '🍌 Tokyo Exclusive',
-        price: '$6.50',
-        desc: 'The iconic Tokyo Banana cream cake flavor blended with crunchy wafer chocolate layers.'
-      },
-      {
-        id: 'c2',
-        name: 'Spy x Family Anya Forger Nendoroid (Restock)',
-        estDate: 'November 2026',
-        category: 'Figures',
-        badge: '🧸 Pre-Order',
-        price: '$52.00',
-        desc: 'Official Good Smile Company figure with signature funny expression faceplates.'
-      },
-      {
-        id: 'c3',
-        name: 'Final Fantasy VII Rebirth Vinyl Soundtrack OST',
-        estDate: 'Mid November 2026',
-        category: 'Media',
-        badge: '🎵 Limited LP',
-        price: '$44.99',
-        desc: 'Special picture disc double LP vinyl import straight from Square Enix Japan.'
-      }
-    ];
-
-    const products = [
-      { 
-        id: 1, 
-        category: 'snacks', 
-        name: 'Nestle - Kit Kat Chocolate (Strawberry) 113g', 
-        price: 5.00, 
-        unit: 'Mini 10-Pack (113g)', 
-        tag: '🍓 Japan Limited', 
-        bg: 'bg-pink-100 text-pink-800',
-        image: 'https://m.media-amazon.com/images/I/71Y-3fV-GLL._SL1500_.jpg',
-        description: 'Savor the sweet, fruity flavor of Nestle Kit Kat Strawberry. Crisp wafer layers are coated in smooth strawberry-flavored chocolate with embedded biscuit bits (オトナの甘さ - Adult Sweetness), delivering a delightful combination of crunchy texture and fruity sweetness. Perfect for snacking, sharing, or gifting.',
-        origin: 'Japan',
-        weight: '4.23 oz (120 g / 113g net)',
-        ean: '4902201183055',
-        stock: 'In Stock (Direct US Shipping)'
-      },
-      { 
-        id: 2, 
-        category: 'snacks', 
-        name: 'Sangaria Ramune Marble Soda', 
-        price: 2.99, 
-        unit: '200ml Glass Bottle', 
-        tag: '🥤 Pop Drink', 
-        bg: 'bg-cyan-100 text-cyan-800',
-        image: 'https://m.media-amazon.com/images/I/61b-1Qj0N6L._SL1500_.jpg',
-        description: 'Classic Japanese Ramune carbonated drink in an authentic glass marble bottle. Refreshing citrus lemon-lime flavor.',
-        origin: 'Japan',
-        weight: '6.76 fl oz (200 ml)',
-        ean: '4902179007021',
-        stock: 'In Stock'
-      },
-      { 
-        id: 3, 
-        category: 'figures', 
-        name: 'Good Smile Nendoroid Figure', 
-        price: 49.99, 
-        unit: 'Official Boxed Figure', 
-        tag: '🧸 Official Collectible', 
-        bg: 'bg-purple-100 text-purple-800',
-        image: 'https://m.media-amazon.com/images/I/71qL2x-9wFL._AC_SL1500_.jpg',
-        description: 'Authentic imported articulated figure with interchangeable faceplates and accessories.',
-        origin: 'Japan',
-        weight: '9.8 oz',
-        ean: '4580590120014',
-        stock: 'In Stock'
-      },
-      { 
-        id: 4, 
-        category: 'manga', 
-        name: 'Chainsaw Man, Vol. 1', 
-        price: 9.99, 
-        unit: 'English Paperback', 
-        tag: '📚 Best Seller', 
-        bg: 'bg-orange-100 text-orange-800',
-        image: 'https://m.media-amazon.com/images/I/81s+9p63mgL._SL1500_.jpg',
-        description: 'Bestselling manga series written and illustrated by Tatsuki Fujimoto.',
-        origin: 'USA / VIZ Media',
-        weight: '6.4 oz',
-        ean: '9781974715305',
-        stock: 'In Stock'
-      },
-      { 
-        id: 5, 
-        category: 'media', 
-        name: 'Studio Ghibli Vinyl Soundtrack OST', 
-        price: 39.99, 
-        unit: 'Limited Edition LP', 
-        tag: '🎵 Vinyl Record', 
-        bg: 'bg-indigo-100 text-indigo-800',
-        image: 'https://m.media-amazon.com/images/I/81xXj1y0qXL._SL1500_.jpg',
-        description: 'Iconic orchestral vinyl score composed by Joe Hisaishi for Studio Ghibli masterpieces.',
-        origin: 'Japan Import',
-        weight: '12.0 oz',
-        ean: '4988008088012',
-        stock: 'Limited Quantity'
-      }
-    ];
-
     let cart = [];
-    let currentCategory = 'all';
 
-    // CAROUSEL FUNCTIONALITY
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.banner-slide');
-    const tabs = document.querySelectorAll('.carousel-tab');
-
-    function goToSlide(index) {
-      slides[currentSlide].classList.add('opacity-0');
-      slides[currentSlide].classList.remove('opacity-100');
-      tabs[currentSlide].classList.remove('bg-pink-600', 'text-white');
-      tabs[currentSlide].classList.add('text-slate-300');
-
-      currentSlide = index;
-
-      slides[currentSlide].classList.remove('opacity-0');
-      slides[currentSlide].classList.add('opacity-100');
-      tabs[currentSlide].classList.add('bg-pink-600', 'text-white');
-      tabs[currentSlide].classList.remove('text-slate-300');
+    function toggleCart() {
+      const modal = document.getElementById('cartModal');
+      modal.classList.toggle('hidden');
     }
 
-    function nextSlide() {
-      let next = (currentSlide + 1) % slides.length;
-      goToSlide(next);
-    }
-
-    function prevSlide() {
-      let prev = (currentSlide - 1 + slides.length) % slides.length;
-      goToSlide(prev);
-    }
-
-    setInterval(nextSlide, 5000);
-
-    // RENDER UPCOMING ITEMS
-    function renderUpcoming() {
-      const container = document.getElementById('upcomingGrid');
-      container.innerHTML = '';
-      upcomingProducts.forEach(item => {
-        container.innerHTML += `
-          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-purple-400 transition flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-center mb-3">
-                <span class="bg-purple-400/20 text-purple-200 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-purple-400/30 pop-font">
-                  ${item.badge}
-                </span>
-                <span class="text-[10px] font-bold text-yellow-300">📅 ${item.estDate}</span>
-              </div>
-              <h3 class="font-extrabold text-white text-base leading-snug mb-1">${item.name}</h3>
-              <p class="text-xs text-slate-300 font-medium mb-3 leading-relaxed">${item.desc}</p>
-            </div>
-            <div class="pt-3 border-t border-white/10 flex justify-between items-center">
-              <span class="text-sm font-black text-yellow-300 pop-font">Est. ${item.price}</span>
-              <button onclick="openNotifyModal('${item.name}')" class="bg-purple-500 hover:bg-purple-400 text-white font-extrabold px-3 py-1.5 rounded-xl text-xs transition pop-font">
-                Notify Me 🔔
-              </button>
-            </div>
-          </div>
-        `;
-      });
-    }
-
-    function renderProducts() {
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = '';
-      
-      const filtered = products.filter(p => {
-        const matchesCat = currentCategory === 'all' || p.category === currentCategory;
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        return matchesCat && (p.name.toLowerCase().includes(query) || p.tag.toLowerCase().includes(query));
-      });
-
-      document.getElementById('itemCountDisplay').innerText = `Showing ${filtered.length} items`;
-
-      filtered.forEach(p => {
-        const card = `
-          <div class="bg-white border-2 border-slate-100 hover:border-pink-300 rounded-3xl overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between group cursor-pointer" onclick="openProductModal(${p.id})">
-            <div class="p-5">
-              <div class="flex justify-between items-start mb-3">
-                <span class="text-[11px] font-extrabold px-3 py-1 rounded-full ${p.bg} pop-font">
-                  ${p.tag}
-                </span>
-                <span class="text-[10px] font-bold text-pink-500 uppercase tracking-widest pop-font">Quick View 👁️</span>
-              </div>
-              <div class="h-44 flex items-center justify-center p-2 mb-3 bg-slate-50 rounded-2xl overflow-hidden">
-                <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Import+Goods';">
-              </div>
-              <h3 class="font-bold text-slate-900 text-base group-hover:text-pink-600 transition leading-snug mb-1">${p.name}</h3>
-              <p class="text-xs font-semibold text-slate-400">${p.unit}</p>
-            </div>
-
-            <div class="p-5 pt-0 flex justify-between items-center border-t border-slate-100 mt-2 pt-4" onclick="event.stopPropagation()">
-              <div>
-                <p class="text-xl font-black text-slate-900 pop-font">$${p.price.toFixed(2)}</p>
-              </div>
-              <button onclick="addToCart(${p.id})" class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-3.5 py-2.5 rounded-2xl shadow-md transition transform active:scale-95 border-b-2 border-pink-700 flex items-center gap-1 text-xs pop-font">
-                <span>+ Add to Bag</span>
-              </button>
-            </div>
-          </div>
-        `;
-        grid.innerHTML += card;
-      });
-    }
-
-    function openProductModal(id) {
-      const p = products.find(item => item.id === id);
-      if (!p) return;
-
-      const modalContent = document.getElementById('modalContent');
-      modalContent.innerHTML = `
-        <div class="bg-slate-50 p-4 rounded-2xl flex items-center justify-center border border-pink-100 h-64">
-          <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain drop-shadow-md">
-        </div>
-        <div>
-          <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full ${p.bg} pop-font mb-2">
-            ${p.tag}
-          </span>
-          <h2 class="text-xl font-black text-slate-900 leading-snug mb-2 pop-font">${p.name}</h2>
-          <p class="text-2xl font-black text-pink-600 pop-font mb-3">$${p.price.toFixed(2)}</p>
-          
-          <p class="text-xs text-slate-600 font-medium leading-relaxed mb-4">
-            ${p.description}
-          </p>
-
-          <div class="bg-pink-50 p-3.5 rounded-2xl border border-pink-100 text-xs space-y-1.5 font-medium mb-5">
-            <div class="flex justify-between"><span class="text-slate-400">Weight:</span> <span class="font-bold text-slate-700">${p.weight}</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Origin:</span> <span class="font-bold text-slate-700">Made in ${p.origin}</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Barcode (EAN):</span> <span class="font-mono text-slate-700">${p.ean}</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Availability:</span> <span class="font-bold text-teal-600">${p.stock}</span></div>
-          </div>
-
-          <div class="flex gap-3">
-            <button onclick="addToCart(${p.id}); closeProductModal();" class="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-extrabold py-3 rounded-2xl shadow-lg shadow-pink-300 transition pop-font text-sm border-b-4 border-pink-700 active:translate-y-0.5">
-              Add to Shopping Bag 🛒
-            </button>
-          </div>
-        </div>
-      `;
-
-      document.getElementById('productModal').classList.remove('hidden');
-    }
-
-    function closeProductModal() {
-      document.getElementById('productModal').classList.add('hidden');
-    }
-
-    function openNotifyModal(itemName) {
-      document.getElementById('notifyTitle').innerText = `Notify for: ${itemName}`;
-      document.getElementById('notifyModal').classList.remove('hidden');
-    }
-
-    function closeNotifyModal() {
-      document.getElementById('notifyModal').classList.add('hidden');
-    }
-
-    function handleNotifySubmit(e) {
-      e.preventDefault();
-      alert('Thank you! You will be notified as soon as this item arrives in stock.');
-      closeNotifyModal();
-    }
-
-    function setCategory(cat) {
-      currentCategory = cat;
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.remove('bg-pink-500', 'text-white', 'shadow-md');
-        btn.classList.add('bg-white', 'text-slate-700', 'border-2', 'border-slate-200');
-      });
-      if(event && event.target) {
-        event.target.classList.remove('bg-white', 'text-slate-700', 'border-2', 'border-slate-200');
-        event.target.classList.add('bg-pink-500', 'text-white', 'shadow-md');
-      }
-      renderProducts();
-    }
-
-    function filterProducts() {
-      renderProducts();
-    }
-
-    function addToCart(id) {
-      const item = products.find(p => p.id === id);
-      const existing = cart.find(c => c.id === id);
+    function addToCart(id, name, price) {
+      const existing = cart.find(item => item.id === id);
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({ ...item, qty: 1 });
+        cart.push({ id, name, price, qty: 1 });
       }
       updateCartUI();
+      toggleCart();
     }
 
     function updateCartUI() {
       const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
       document.getElementById('cartCount').innerText = cartCount;
+
+      // PERSIST CART IN LOCAL STORAGE FOR CHECKOUT.HTML
+      localStorage.setItem('chuoDoriCart', JSON.stringify(cart));
 
       const cartContainer = document.getElementById('cartItems');
       if (cart.length === 0) {
@@ -675,12 +243,16 @@
       document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
     }
 
-    function toggleCart() {
-      document.getElementById('cartModal').classList.toggle('hidden');
+    // RELOAD SAVED CART ON PAGE OPEN
+    function loadSavedCart() {
+      const saved = localStorage.getItem('chuoDoriCart');
+      if (saved) {
+        cart = JSON.parse(saved);
+        updateCartUI();
+      }
     }
 
-    renderUpcoming();
-    renderProducts();
+    loadSavedCart();
   </script>
 </body>
 </html>
