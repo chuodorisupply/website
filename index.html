@@ -266,7 +266,7 @@
           <span>Total:</span>
           <span id="cartTotal" class="text-pink-600 text-2xl pop-font">$0.00</span>
         </div>
-        <button onclick="alert('Checkout initiated!')" class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-black py-4 rounded-2xl pop-shadow border-3 border-slate-900 transition pop-font text-lg">
+        <button onclick="openCheckout()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-black py-4 rounded-2xl pop-shadow border-3 border-slate-900 transition pop-font text-lg">
           CHECKOUT NOW 💳
         </button>
       </div>
@@ -490,7 +490,7 @@
                 <span class="text-[11px] font-black px-3 py-1 rounded-full border-2 border-slate-900 ${p.bg} pop-font">
                   ${p.tag}
                 </span>
-                <span class="text-[10px] font-black text-pink-500 uppercase tracking-widest pop-font">VIEW 👁️️</span>
+                <span class="text-[10px] font-black text-pink-500 uppercase tracking-widest pop-font">VIEW 👁</span>
               </div>
               <div class="h-44 flex items-center justify-center p-2 mb-3 bg-amber-50 rounded-2xl border-2 border-slate-900 overflow-hidden">
                 <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Import+Goods';">
@@ -618,6 +618,15 @@
     function removeFromCart(index) {
       cart.splice(index, 1);
       updateCart();
+    }
+
+    function openCheckout() {
+      if (cart.length === 0) {
+        alert('Your shopping bag is empty! Add items before checking out.');
+        return;
+      }
+      localStorage.setItem('chuoCart', JSON.stringify(cart));
+      window.location.href = 'checkout.html';
     }
 
     // INITIAL RENDER
