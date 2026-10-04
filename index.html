@@ -157,7 +157,7 @@
       ❯
     </button>
 
-    <!-- CAROUSEL TAB NAVIGATION (SUPER DELIVERY STYLE) -->
+    <!-- CAROUSEL TAB NAVIGATION -->
     <div class="bg-slate-900/90 backdrop-blur-md border-t border-white/10 relative z-20">
       <div class="max-w-7xl mx-auto flex divide-x divide-white/10 text-xs sm:text-sm font-extrabold text-slate-300">
         <button onclick="goToSlide(0)" class="carousel-tab flex-1 py-3 text-center transition hover:text-white hover:bg-white/5 active-tab bg-pink-600 text-white pop-font">
@@ -173,7 +173,7 @@
     </div>
   </section>
 
-  <!-- STORE NOTICES & NEWS TICKER SECTION -->
+  <!-- STORE NOTICES SECTION -->
   <section class="max-w-7xl mx-auto px-6 mt-6 mb-4">
     <div class="bg-white border-2 border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4">
       <div class="bg-indigo-600 text-white font-extrabold text-xs px-3.5 py-2 rounded-xl flex items-center gap-2 shrink-0 pop-font">
@@ -191,6 +191,32 @@
           <span>Authentic Japan import KitKat Strawberry Mini 10-packs now back in stock.</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S NEW & COMING SOON HIGHLIGHT SECTION -->
+  <section class="max-w-7xl mx-auto px-6 py-6">
+    <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden border-2 border-purple-500/30">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 relative z-10 border-b border-white/10 pb-4">
+        <div>
+          <span class="bg-purple-500 text-white font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider pop-font inline-block mb-2 shadow-sm">
+            🚀 Up Next
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black pop-font tracking-tight">
+            WHAT'S NEW & COMING SOON
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm font-medium mt-1">
+            Get a sneak peek at upcoming direct shipment drops from Japan & South Korea. Sign up to get notified when they arrive!
+          </p>
+        </div>
+      </div>
+
+      <!-- UPCOMING ITEMS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10" id="upcomingGrid">
+        <!-- Dynamically rendered coming soon items -->
+      </div>
+
     </div>
   </section>
 
@@ -215,20 +241,38 @@
     </div>
   </section>
 
-  <!-- PRODUCT QUICK-VIEW MODAL (OPTION A SPA IMPLEMENTATION) -->
+  <!-- PRODUCT QUICK-VIEW MODAL -->
   <div id="productModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl border-4 border-pink-200">
       
-      <!-- CLOSE BUTTON -->
       <button onclick="closeProductModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-600 font-bold text-xl flex items-center justify-center transition">
         &times;
       </button>
 
-      <!-- MODAL CONTENT CONTAINER -->
       <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <!-- Dynamically injected upon clicking a product -->
       </div>
 
+    </div>
+  </div>
+
+  <!-- NOTIFY ME / PRE-ORDER MODAL -->
+  <div id="notifyModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl border-4 border-purple-300">
+      <button onclick="closeNotifyModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-600 font-bold text-lg flex items-center justify-center transition">&times;</button>
+      
+      <div class="text-center">
+        <span class="text-4xl mb-2 inline-block">🔔</span>
+        <h3 id="notifyTitle" class="text-xl font-black text-slate-900 pop-font mb-1">Get Drop Notifications</h3>
+        <p class="text-xs text-slate-500 font-medium mb-4">Be the first to know when this item arrives at our US warehouse!</p>
+        
+        <form onsubmit="handleNotifySubmit(event)" class="space-y-3">
+          <input type="email" required placeholder="Enter your email address..." class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-purple-500">
+          <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3 rounded-xl shadow-md transition pop-font text-xs">
+            Notify Me On Release 🚀
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -300,8 +344,38 @@
     </div>
   </footer>
 
-  <!-- DYNAMIC CATALOG & CAROUSEL SCRIPT -->
+  <!-- DYNAMIC CATALOG & MODAL SCRIPT -->
   <script>
+    const upcomingProducts = [
+      {
+        id: 'c1',
+        name: 'Nestle Japan - KitKat Tokyo Banana Flavor',
+        estDate: 'Late October 2026',
+        category: 'Snacks',
+        badge: '🍌 Tokyo Exclusive',
+        price: '$6.50',
+        desc: 'The iconic Tokyo Banana cream cake flavor blended with crunchy wafer chocolate layers.'
+      },
+      {
+        id: 'c2',
+        name: 'Spy x Family Anya Forger Nendoroid (Restock)',
+        estDate: 'November 2026',
+        category: 'Figures',
+        badge: '🧸 Pre-Order',
+        price: '$52.00',
+        desc: 'Official Good Smile Company figure with signature funny expression faceplates.'
+      },
+      {
+        id: 'c3',
+        name: 'Final Fantasy VII Rebirth Vinyl Soundtrack OST',
+        estDate: 'Mid November 2026',
+        category: 'Media',
+        badge: '🎵 Limited LP',
+        price: '$44.99',
+        desc: 'Special picture disc double LP vinyl import straight from Square Enix Japan.'
+      }
+    ];
+
     const products = [
       { 
         id: 1, 
@@ -311,7 +385,7 @@
         unit: 'Mini 10-Pack (113g)', 
         tag: '🍓 Japan Limited', 
         bg: 'bg-pink-100 text-pink-800',
-        image: 'kitkat.webp',
+        image: 'https://m.media-amazon.com/images/I/71Y-3fV-GLL._SL1500_.jpg',
         description: 'Savor the sweet, fruity flavor of Nestle Kit Kat Strawberry. Crisp wafer layers are coated in smooth strawberry-flavored chocolate with embedded biscuit bits (オトナの甘さ - Adult Sweetness), delivering a delightful combination of crunchy texture and fruity sweetness. Perfect for snacking, sharing, or gifting.',
         origin: 'Japan',
         weight: '4.23 oz (120 g / 113g net)',
@@ -412,8 +486,35 @@
       goToSlide(prev);
     }
 
-    // Auto rotate every 5 seconds
     setInterval(nextSlide, 5000);
+
+    // RENDER UPCOMING ITEMS
+    function renderUpcoming() {
+      const container = document.getElementById('upcomingGrid');
+      container.innerHTML = '';
+      upcomingProducts.forEach(item => {
+        container.innerHTML += `
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-purple-400 transition flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="bg-purple-400/20 text-purple-200 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-purple-400/30 pop-font">
+                  ${item.badge}
+                </span>
+                <span class="text-[10px] font-bold text-yellow-300">📅 ${item.estDate}</span>
+              </div>
+              <h3 class="font-extrabold text-white text-base leading-snug mb-1">${item.name}</h3>
+              <p class="text-xs text-slate-300 font-medium mb-3 leading-relaxed">${item.desc}</p>
+            </div>
+            <div class="pt-3 border-t border-white/10 flex justify-between items-center">
+              <span class="text-sm font-black text-yellow-300 pop-font">Est. ${item.price}</span>
+              <button onclick="openNotifyModal('${item.name}')" class="bg-purple-500 hover:bg-purple-400 text-white font-extrabold px-3 py-1.5 rounded-xl text-xs transition pop-font">
+                Notify Me 🔔
+              </button>
+            </div>
+          </div>
+        `;
+      });
+    }
 
     function renderProducts() {
       const grid = document.getElementById('productGrid');
@@ -500,6 +601,21 @@
       document.getElementById('productModal').classList.add('hidden');
     }
 
+    function openNotifyModal(itemName) {
+      document.getElementById('notifyTitle').innerText = `Notify for: ${itemName}`;
+      document.getElementById('notifyModal').classList.remove('hidden');
+    }
+
+    function closeNotifyModal() {
+      document.getElementById('notifyModal').classList.add('hidden');
+    }
+
+    function handleNotifySubmit(e) {
+      e.preventDefault();
+      alert('Thank you! You will be notified as soon as this item arrives in stock.');
+      closeNotifyModal();
+    }
+
     function setCategory(cat) {
       currentCategory = cat;
       document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -563,6 +679,7 @@
       document.getElementById('cartModal').classList.toggle('hidden');
     }
 
+    renderUpcoming();
     renderProducts();
   </script>
 </body>
