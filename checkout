@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | CHUO-DORI Asian Imports</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: #FAF8F5;
+    }
+    h1, h2, h3, .pop-font { 
+      font-family: 'Fredoka', sans-serif; 
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- SIMPLE SECURE HEADER -->
+  <header class="bg-white border-b-2 border-pink-100 py-4 px-6 shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 bg-pink-500 rounded-xl flex items-center justify-center font-black text-white text-lg shadow-md group-hover:scale-105 transition">
+          中央
+        </div>
+        <div>
+          <span class="text-xl font-black text-slate-900 pop-font block leading-none">CHUO-DORI</span>
+          <span class="text-[9px] font-extrabold text-pink-500 uppercase tracking-widest block mt-0.5">Secure Store Checkout</span>
+        </div>
+      </a>
+
+      <!-- SECURITY BADGE & RETURN TO SHOPPING -->
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-xs font-bold text-slate-500 hover:text-pink-600 transition flex items-center gap-1 pop-font">
+          <span>❮</span> Return to Store
+        </a>
+        <div class="hidden sm:flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">
+          <span>🔒 256-Bit SSL Encrypted</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT CONTENT -->
+  <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-8 flex-1">
+    <h1 class="text-2xl sm:text-3xl font-black text-slate-900 pop-font mb-6">Complete Your Purchase</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: CUSTOMER INFORMATION & PAYMENT FORM (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
+          
+          <!-- STEP 1: CONTACT INFO -->
+          <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 bg-pink-500 text-white font-black rounded-full flex items-center justify-center text-xs pop-font">1</span>
+              <h2 class="text-lg font-black text-slate-900 pop-font">Contact Information</h2>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Email Address (for order tracking)</label>
+                <input type="email" required placeholder="alex.smith@example.com" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500 transition">
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="newsletter" checked class="rounded border-slate-300 text-pink-500 focus:ring-pink-400">
+                <label for="newsletter" class="text-xs font-semibold text-slate-500">Email me with exclusive import drops and coupon codes</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: SHIPPING ADDRESS -->
+          <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 bg-pink-500 text-white font-black rounded-full flex items-center justify-center text-xs pop-font">2</span>
+              <h2 class="text-lg font-black text-slate-900 pop-font">Shipping Address</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">First Name</label>
+                <input type="text" required placeholder="Alex" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Last Name</label>
+                <input type="text" required placeholder="Smith" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold text-slate-600 mb-1">Street Address</label>
+                <input type="text" required placeholder="123 Pop Culture Way, Apt 4B" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">City</label>
+                <input type="text" required placeholder="Los Angeles" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">State</label>
+                  <input type="text" required placeholder="CA" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">ZIP Code</label>
+                  <input type="text" required placeholder="90210" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- SHIPPING METHOD SELECTOR -->
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <label class="block text-xs font-bold text-slate-700 mb-2">Delivery Speed (US Domestic)</label>
+              <div class="space-y-2">
+                <label class="flex items-center justify-between bg-slate-50 border-2 border-pink-500 p-3 rounded-2xl cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="shippingMethod" value="standard" checked onclick="updateShippingCost(4.99)" class="text-pink-500 focus:ring-pink-400">
+                    <div>
+                      <p class="text-xs font-bold text-slate-900">Standard Express Shipping (2–4 Days)</p>
+                      <p class="text-[10px] text-slate-500">Dispatched via USPS Priority</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 pop-font">$4.99</span>
+                </label>
+                <label class="flex items-center justify-between bg-slate-50 border-2 border-slate-200 p-3 rounded-2xl cursor-pointer hover:border-pink-300">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="shippingMethod" value="priority" onclick="updateShippingCost(9.99)" class="text-pink-500 focus:ring-pink-400">
+                    <div>
+                      <p class="text-xs font-bold text-slate-900">Overnight Priority Express (1–2 Days)</p>
+                      <p class="text-[10px] text-slate-500">Fast-track direct dispatch</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 pop-font">$9.99</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: PAYMENT METHOD -->
+          <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 bg-pink-500 text-white font-black rounded-full flex items-center justify-center text-xs pop-font">3</span>
+              <h2 class="text-lg font-black text-slate-900 pop-font">Payment Details</h2>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Card Number</label>
+                <input type="text" required placeholder="4532 •••• •••• 8892" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Expiration Date</label>
+                  <input type="text" required placeholder="MM / YY" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">CVC / Security Code</label>
+                  <input type="text" required placeholder="123" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-pink-500">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBMIT BUTTON -->
+          <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-pink-200 transition pop-font text-base border-b-4 border-pink-700 active:translate-y-0.5">
+            Place Order Now 🛍️
+          </button>
+
+        </form>
+      </div>
+
+      <!-- RIGHT COLUMN: ORDER SUMMARY (5 Cols) -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl p-6 border-2 border-pink-200 shadow-xl sticky top-6">
+          <h2 class="text-xl font-black text-slate-900 pop-font mb-4 border-b border-slate-100 pb-3">Order Summary</h2>
+
+          <!-- CART ITEMS REVIEW LIST -->
+          <div id="checkoutCartItems" class="space-y-3 max-h-60 overflow-y-auto pr-1 border-b border-slate-100 pb-4 mb-4">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+
+          <!-- PROMO CODE INPUT -->
+          <div class="flex gap-2 mb-6">
+            <input type="text" id="promoInput" placeholder="Promo code (e.g. CHUO15)" class="flex-1 bg-slate-50 border-2 border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold uppercase focus:outline-none focus:border-pink-500">
+            <button onclick="applyPromo()" class="bg-slate-900 hover:bg-pink-600 text-white font-black px-4 py-2 rounded-xl text-xs transition pop-font">Apply</button>
+          </div>
+
+          <!-- COST BREAKDOWN -->
+          <div class="space-y-2 text-xs font-semibold text-slate-600 border-b border-slate-100 pb-4 mb-4">
+            <div class="flex justify-between">
+              <span>Subtotal</span>
+              <span id="summarySubtotal" class="font-bold text-slate-900">$0.00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Estimated Shipping</span>
+              <span id="summaryShipping" class="font-bold text-slate-900">$4.99</span>
+            </div>
+            <div class="flex justify-between" id="discountRow" style="display: none;">
+              <span class="text-emerald-600 font-bold">Discount (Applied)</span>
+              <span id="summaryDiscount" class="font-bold text-emerald-600">-$0.00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Estimated Tax (8%)</span>
+              <span id="summaryTax" class="font-bold text-slate-900">$0.00</span>
+            </div>
+          </div>
+
+          <!-- GRAND TOTAL -->
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-black text-slate-900 pop-font">Total Due</span>
+            <span id="summaryGrandTotal" class="text-2xl font-black text-pink-600 pop-font">$0.00</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-400 font-medium bg-white mt-12">
+    <p>&copy; 2026 CHUO-DORI Asian Pop Culture & Goods. All rights reserved.</p>
+  </footer>
+
+  <!-- CHECKOUT SCRIPT -->
+  <script>
+    let cart = [];
+    let shippingCost = 4.99;
+    let discountRate = 0;
+
+    function loadCart() {
+      const savedCart = localStorage.getItem('chuoDoriCart');
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+      }
+      renderSummary();
+    }
+
+    function renderSummary() {
+      const container = document.getElementById('checkoutCartItems');
+      if (!cart || cart.length === 0) {
+        container.innerHTML = `<p class="text-xs font-bold text-slate-400 text-center py-4">Your shopping cart is empty.</p>`;
+      } else {
+        container.innerHTML = '';
+        cart.forEach(item => {
+          container.innerHTML += `
+            <div class="flex justify-between items-center text-xs">
+              <div class="pr-2">
+                <p class="font-bold text-slate-800">${item.name}</p>
+                <p class="text-[10px] text-slate-400">Qty: ${item.qty}</p>
+              </div>
+              <p class="font-black text-slate-900 pop-font">$${(item.price * item.qty).toFixed(2)}</p>
+            </div>
+          `;
+        });
+      }
+
+      calculateTotals();
+    }
+
+    function calculateTotals() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const discount = subtotal * discountRate;
+      const taxableAmount = subtotal - discount;
+      const tax = taxableAmount * 0.08; // 8% estimated tax
+      const total = taxableAmount + shippingCost + tax;
+
+      document.getElementById('summarySubtotal').innerText = `$${subtotal.toFixed(2)}`;
+      document.getElementById('summaryShipping').innerText = `$${shippingCost.toFixed(2)}`;
+      
+      if (discountRate > 0) {
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('summaryDiscount').innerText = `-$${discount.toFixed(2)}`;
+      }
+
+      document.getElementById('summaryTax').innerText = `$${tax.toFixed(2)}`;
+      document.getElementById('summaryGrandTotal').innerText = `$${total.toFixed(2)}`;
+    }
+
+    function updateShippingCost(cost) {
+      shippingCost = cost;
+      calculateTotals();
+    }
+
+    function applyPromo() {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      if (code === 'CHUO15') {
+        discountRate = 0.15; // 15% discount
+        alert('Coupon CHUO15 applied: 15% OFF your order!');
+      } else if (code === 'MEGASALE2026') {
+        discountRate = 0.20; // 20% discount
+        alert('Coupon MEGASALE2026 applied: 20% OFF!');
+      } else {
+        alert('Invalid promo code.');
+        discountRate = 0;
+      }
+      calculateTotals();
+    }
+
+    function handleCheckoutSubmit(e) {
+      e.preventDefault();
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      alert('Order successfully placed! Thank you for shopping with CHUO-DORI.');
+      localStorage.removeItem('chuoDoriCart');
+      window.location.href = 'index.html';
+    }
+
+    loadCart();
+  </script>
+</body>
+</html>
